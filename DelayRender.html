@@ -15,7 +15,7 @@
 
 		.new-div {
 			background-color: blue;
-			color: white;
+			color: black;
 			padding: 10px;
 			margin-top: 20px;
 		}
@@ -31,10 +31,15 @@
 
 	<script>
 		setTimeout(function() {
+			var newInnerDiv = document.createElement('div'); 
+			newInnerDiv.setAttribute('id', 'inside');
+			
 			var newDiv = document.createElement('div');
-			newDiv.innerHTML = "<p>This is a new div that was added after a 3-second delay.</p>";
+			newDiv.innerHTML = '<p>This is a new div that replaces the old div after a 3-second delay.</p>';
 			newDiv.classList.add('new-div');
-			document.getElementById('inside').appendChild(newDiv);
+			newInnerDiv.appendChild(newDiv)
+			
+			document.getElementById('outside').replaceChild(newInnerDiv, document.getElementById('inside'));
 		}, 3000);
 	</script>
 </body>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Website</title>
+	<style>
+		#outside {
+			background-color: gray;
+			padding: 20px;
+		}
+
+		#inside {
+			background-color: white;
+			padding: 20px;
+		}
+
+		.new-div {
+			background-color: blue;
+			color: white;
+			padding: 10px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div id="outside">
+		<div id="inside">
+			<h1>Welcome to my Website</h1>
+			<p>This is an example website for testing dynamic content in cypress.</p>
+		</div>
+	</div>
+
+	<script>
+		setTimeout(function() {
+			var newDiv = document.createElement('div');
+			newDiv.innerHTML = "<p>This is a new div that was added after a 3-second delay.</p>";
+			newDiv.classList.add('new-div');
+			document.getElementById('inside').appendChild(newDiv);
+		}, 3000);
+	</script>
+</body>
+</html>
